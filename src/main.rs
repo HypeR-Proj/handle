@@ -4,8 +4,6 @@
 //! Capability-scoped Native object and process-handle inspection.
 
 // Select the shared parser implementation for Native delivery.
-#[cfg(target_os = "hyper")]
-extern crate hyper_clap_shared as _;
 
 use clap::Parser;
 use hyper_handle::{cli::Handle, output, query};
@@ -48,3 +46,6 @@ fn main() -> std::process::ExitCode {
         }
     }
 }
+
+#[cfg(target_os = "hyper")]
+extern crate hyper_clap_shared as clap;
